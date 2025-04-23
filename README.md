@@ -1,53 +1,62 @@
-#desenvolvimento da Web
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitar Retirada de Material</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>SOLICITAR RETIRADA DE MATERIAL</h1>
-    </header>
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background-color: #f8f8f8;
+}
 
-    <main>
-        <section>
-            <h2>Materiais disponíveis</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Material</th>
-                        <th>Quantidade (kg)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Plástico</td><td>102</td></tr>
-                    <tr><td>Metal</td><td>240</td></tr>
-                    <tr><td>Papel</td><td>48</td></tr>
-                    <tr><td>Tecido</td><td>23</td></tr>
-                </tbody>
-            </table>
-        </section>
+header h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
 
-        <form>
-            <label for="material">Selecionar material desejado</label>
-            <select id="material" name="material">
-                <option value="plastico">Plástico</option>
-                <option value="metal">Metal</option>
-                <option value="papel">Papel</option>
-                <option value="tecido">Tecido</option>
-            </select>
+section {
+    margin-bottom: 30px;
+}
 
-            <label for="quantidade">Quantidade (kg)</label>
-            <input type="number" id="quantidade" name="quantidade" value="12" min="1">
+table {
+    width: 300px;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
 
-            <label for="data">Data para retiro</label>
-            <input type="date" id="data" name="data" value="2025-07-01">
+table, th, td {
+    border: 1px solid #aaa;
+}
 
-            <button type="submit">Solicitar Retirada</button>
-        </form>
-    </main>
-</body>
-</html>
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+form label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+form input[type="number"],
+form input[type="date"],
+form select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
