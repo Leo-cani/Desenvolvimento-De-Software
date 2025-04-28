@@ -1,83 +1,119 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Resíduos</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <header>
-        <button class="hamburger" onclick="toggleSidebar()">☰</button>
-        <input type="text" class="search-bar" placeholder="https://">
-    </header>
+body {
+    font-family: Arial, sans-serif;
+}
 
-    <div class="container">
-        <nav id="sidebar">
-            <ul>
-                <li><a href="#">Cadastrar</a></li>
-            </ul>
-        </nav>
+header {
+    background: #f0f0f0;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
 
-        <main>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nome da Ação</th>
-                        <th>Tipo de Resíduo</th>
-                        <th>Quantidade Estimada</th>
-                        <th>Localização</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><input type="text" id="nomeAcao"></td>
-                        <td><input type="text" id="tipoResiduo"></td>
-                        <td><input type="number" id="quantidade"></td>
-                        <td><input type="text" id="localizacao"></td>
-                    </tr>
-                </tbody>
-            </table>
+.hamburger {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
 
-            <button class="cadastrar-btn" onclick="cadastrar()">Cadastrar</button>
+.search-bar {
+    flex-grow: 1;
+    margin-left: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
 
-            <div id="mensagem-sucesso" class="mensagem sucesso">
-                <span>✓ Seu Cadastro Foi Concluído!</span>
-                <a href="#" onclick="fecharMensagem('mensagem-sucesso')">Fechar</a>
-            </div>
+.container {
+    display: flex;
+}
 
-            <div id="mensagem-erro" class="mensagem erro">
-                <span>✗ Ocorreu um Erro, Tente Novamente.</span>
-                <a href="#" onclick="fecharMensagem('mensagem-erro')">Fechar</a>
-            </div>
-        </main>
-    </div>
+#sidebar {
+    width: 200px;
+    background: #4CAF50;
+    min-height: 100vh;
+    transition: width 0.3s;
+}
 
-    <script>
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('active');
-        }
+#sidebar ul {
+    list-style: none;
+    padding: 20px 0;
+}
 
-        function cadastrar() {
-            const nomeAcao = document.getElementById('nomeAcao').value.trim();
-            const tipoResiduo = document.getElementById('tipoResiduo').value.trim();
-            const quantidade = document.getElementById('quantidade').value.trim();
-            const localizacao = document.getElementById('localizacao').value.trim();
+#sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+}
 
-            if (nomeAcao && tipoResiduo && quantidade && localizacao) {
-                document.getElementById('mensagem-sucesso').style.display = 'flex';
-                document.getElementById('mensagem-erro').style.display = 'none';
-            } else {
-                document.getElementById('mensagem-sucesso').style.display = 'none';
-                document.getElementById('mensagem-erro').style.display = 'flex';
-            }
-        }
+#sidebar.active {
+    width: 0;
+    overflow: hidden;
+}
 
-        function fecharMensagem(id) {
-            document.getElementById(id).style.display = 'none';
-        }
-    </script>
+main {
+    flex-grow: 1;
+    padding: 20px;
+}
 
-</body>
-</html>
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.cadastrar-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cadastrar-btn:hover {
+    background: #45a049;
+}
+
+.mensagem {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.sucesso {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.erro {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.mensagem a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+}
