@@ -61,10 +61,16 @@ header {
 main {
     flex-grow: 1;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
 }
 
 table {
-    width: 100%;
+    width: 80%;
+    max-width: 800px;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
@@ -76,8 +82,7 @@ table th, table td {
 }
 
 .cadastrar-btn {
-    display: block;
-    width: 100%;
+    width: 200px;
     padding: 10px;
     background: #4CAF50;
     color: white;
@@ -85,6 +90,7 @@ table th, table td {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+    margin-bottom: 20px;
 }
 
 .cadastrar-btn:hover {
@@ -92,6 +98,8 @@ table th, table td {
 }
 
 .mensagem {
+    width: 80%;
+    max-width: 800px;
     display: none;
     justify-content: space-between;
     align-items: center;
