@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Resíduos</title>
+    <link rel="stylesheet" href="Index.CSS">
+</head>
+<body>
+
+    <header>
+        <button class="hamburger" onclick="toggleSidebar()">☰</button>
+    </header>
+
+    <div class="container">
+
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome da Ação</th>
+                        <th>Tipo de Resíduo</th>
+                        <th>Quantidade Estimada</th>
+                        <th>Localização</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" id="nomeAcao"></td>
+                        <td><input type="text" id="tipoResiduo"></td>
+                        <td><input type="number" id="quantidade"></td>
+                        <td><input type="text" id="localizacao"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button class="cadastrar-btn" onclick="cadastrar()">Cadastrar</button>
+
+            <div id="mensagem-sucesso" class="mensagem sucesso">
+                <span>✓ Seu Cadastro Foi Concluído!</span>
+                <a href="#" onclick="fecharMensagem('mensagem-sucesso')">Fechar</a>
+            </div>
+
+            <div id="mensagem-erro" class="mensagem erro">
+                <span>✗ Ocorreu um Erro, Tente Novamente.</span>
+                <a href="#" onclick="fecharMensagem('mensagem-erro')">Fechar</a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        function cadastrar() {
+            const nomeAcao = document.getElementById('nomeAcao').value.trim();
+            const tipoResiduo = document.getElementById('tipoResiduo').value.trim();
+            const quantidade = document.getElementById('quantidade').value.trim();
+            const localizacao = document.getElementById('localizacao').value.trim();
+
+            if (nomeAcao && tipoResiduo && quantidade && localizacao) {
+                document.getElementById('mensagem-sucesso').style.display = 'flex';
+                document.getElementById('mensagem-erro').style.display = 'none';
+            } else {
+                document.getElementById('mensagem-sucesso').style.display = 'none';
+                document.getElementById('mensagem-erro').style.display = 'flex';
+            }
+        }
+
+        function fecharMensagem(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
