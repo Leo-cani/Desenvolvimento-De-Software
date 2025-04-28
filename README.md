@@ -1,144 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="Index.CSS">
+    <title>Cadastro de Resíduos</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="hamburger-label">☰</label>
 
-    <div class="sidebar">
-        <p style="padding: 10px;">Cadastrar</p>
-    </div>
+    <header>
+        <button class="hamburger" onclick="toggleSidebar()">☰</button>
+        <input type="text" class="search-bar" placeholder="https://">
+    </header>
 
-    <div class="main">
-        <form action="#success">
-          <table>
-            <tr>
-              <th>Nome da Ação</th>
-              <th>Tipo de Resíduo</th>
-              <th>Quantidade Estimada</th>
-              <th>Localização</th>
-            </tr>
-            <tr>
-              <td><input type="text" required></td>
-              <td><input type="text" required></td>
-              <td><input type="text" required></td>
-              <td><input type="text" required></td>
-            </tr>
-          </table>
-          <button type="submit" class="btn">Cadastrar</button>
-        </form>
+    <div class="container">
+        <nav id="sidebar">
+            <ul>
+                <li><a href="#">Cadastrar</a></li>
+            </ul>
+        </nav>
 
-        <div id="success">
-            <div class="message success">
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome da Ação</th>
+                        <th>Tipo de Resíduo</th>
+                        <th>Quantidade Estimada</th>
+                        <th>Localização</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" id="nomeAcao"></td>
+                        <td><input type="text" id="tipoResiduo"></td>
+                        <td><input type="number" id="quantidade"></td>
+                        <td><input type="text" id="localizacao"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button class="cadastrar-btn" onclick="cadastrar()">Cadastrar</button>
+
+            <div id="mensagem-sucesso" class="mensagem sucesso">
                 <span>✓ Seu Cadastro Foi Concluído!</span>
-                <a href="#" class="Fechar">Fechar</a>
+                <a href="#" onclick="fecharMensagem('mensagem-sucesso')">Fechar</a>
             </div>
-        </div>
 
-    <div id="error">
-        <div class="message error">
-            <span>✓ Seu Cadastro Foi Concluído!</span>
-            <a href="#" class="Fechar">Fechar</a>
-        </div>
+            <div id="mensagem-erro" class="mensagem erro">
+                <span>✗ Ocorreu um Erro, Tente Novamente.</span>
+                <a href="#" onclick="fecharMensagem('mensagem-erro')">Fechar</a>
+            </div>
+        </main>
     </div>
-    </div>
-    
-    
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        function cadastrar() {
+            const nomeAcao = document.getElementById('nomeAcao').value.trim();
+            const tipoResiduo = document.getElementById('tipoResiduo').value.trim();
+            const quantidade = document.getElementById('quantidade').value.trim();
+            const localizacao = document.getElementById('localizacao').value.trim();
+
+            if (nomeAcao && tipoResiduo && quantidade && localizacao) {
+                document.getElementById('mensagem-sucesso').style.display = 'flex';
+                document.getElementById('mensagem-erro').style.display = 'none';
+            } else {
+                document.getElementById('mensagem-sucesso').style.display = 'none';
+                document.getElementById('mensagem-erro').style.display = 'flex';
+            }
+        }
+
+        function fecharMensagem(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+    </script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-#menu-toggle {
-    display: none;
-}
-.sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 200px;
-    height: 100%;
-    background-color: green;
-    padding-top: 60px;
-    transform: translateX(-100%);
-    transition: transform 0.3s;
-    color: white;
-}
-
-#menu-toggle:checked + .didebar {
-    transform: translateX(0);
-}
-
-.hamburger-label {
-    font-size: 30px;
-    padding: 10px;
-    cursor: pointer;
-    display: inline-block;
-}
-
-.main {
-    margin-left: 20px;
-    padding: 20px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    border: 1px sold #ccc;
-    padding: 10px;
-}
-
-.btn {
-    display: block;
-    margin-top: 10px;
-    padding: 10px 20px;
-}
-
-.message {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 5px;
-}
-
-.success {
-    background-color: #ccc;
-    color: green;
-}
-
-.error {
-    background-color: #ccc;
-    color: #721c24;
-}
-
-.fechar {
-    float: right;
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-#success:target .success,
-#error:target .error {
-    display: block;
-}
-
-.success, .error {
-    display: none;
-}
