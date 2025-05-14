@@ -106,3 +106,9 @@ footer {
 .centralizar {
     text-align: center;
 }
+
+.burger {
+    color : white ;
+    display: flex;
+    justify-content: flex-start;
+}
