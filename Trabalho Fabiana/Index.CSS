@@ -112,3 +112,20 @@ footer {
     display: flex;
     justify-content: flex-start;
 }
+
+#sobres {
+    background: url('./IMG/Fototec.jpg') center/cover no-repeat;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgtelefone {
+    display: flex;
+    justify-content:center;
+    height: 50px;
+}
