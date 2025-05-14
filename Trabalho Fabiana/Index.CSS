@@ -97,3 +97,12 @@ footer {
     text-align: center;
     padding: 20px;
 }
+
+.videoum {
+    display: flex;
+    justify-content: center;
+}
+
+.centralizar {
+    text-align: center;
+}
