@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: beige;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    height: 100vh;
+  }
+  
+  .home-button {
+    background: none;
+    color: white;
+    font-size: 24px;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  .confirmar-button {
+    background-color: green;
+    color: white;
+    border: none;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  main {
+    padding: 30px;
+    flex-grow: 1;
+  }
+  
+  table {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 10px 20px;
+    text-align: center;
+  }
+  
+  td[contenteditable="true"] {
+    background-color: white;
+  }
+  
+  .registrar-button {
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  
+  .mensagem-sucesso {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+
+  main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+  }
+
+  .tabela {
+   text-align: center;
+  }
+
+  table {
+    margin: 0 auto 20px auto;
+  }
