@@ -1,1 +1,65 @@
-https://drive.google.com/file/d/1rmK8694EL2ZvLi82_2h0iqXttOay_TI1/view?usp=drivesdk
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Coleta</title>
+  <link rel="stylesheet" href="Index.CSS">
+</head>
+<body>
+
+  <nav class="sidebar">
+    <button class="home-button">🏠</button>
+    <button class="confirmar-button">Confirmar Coleta</button>
+  </nav>
+
+  <main>
+    <div class="tabela">
+    <table>
+      <thead>
+        <tr>
+          <th>Material</th>
+          <th>Data</th>
+          <th>Quantidade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td contenteditable="true"></td>
+          <td contenteditable="true"></td>
+          <td contenteditable="true"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button class="registrar-button" onclick="mostrarMensagem()">＋ Registrar</button>
+
+    <p id="mensagem" class="mensagem-sucesso" style="display:none;">Registro completo</p>
+</div>
+  </main>
+
+  <script>
+    function mostrarMensagem() {
+      const tds = document.querySelectorAll("table tbody td");
+      let camposValidos = true;
+  
+      tds.forEach(td => {
+        if (td.innerText.trim() === "") {
+          camposValidos = false;
+        }
+      });
+  
+      const mensagem = document.getElementById("mensagem");
+  
+      if (camposValidos) {
+        mensagem.style.color = "green";
+        mensagem.innerText = "Registro Completo";
+      } else {
+        mensagem.style.color = "red";
+        mensagem.innerText = "Erro: Preencha Todos os Campos Antes de Registrar.";
+      }
+  
+      mensagem.style.display = "block";
+    }
+  </script>
+</body>
+</html>
