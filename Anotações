@@ -1,1 +1,24 @@
+<script>
+  function mostrarMensagem() {
+    const tds = document.querySelectorAll("table tbody td");
+    let camposValidos = true;
 
+    tds.forEach(td => {
+      if (td.innerText.trim() === "") {
+        camposValidos = false;
+      }
+    });
+
+    const mensagem = document.getElementById("mensagem");
+
+    if (camposValidos) {
+      mensagem.style.color = "green";
+      mensagem.innerText = "Registro completo";
+    } else {
+      mensagem.style.color = "red";
+      mensagem.innerText = "Erro: preencha todos os campos antes de registrar.";
+    }
+
+    mensagem.style.display = "block";
+  }
+</script>
