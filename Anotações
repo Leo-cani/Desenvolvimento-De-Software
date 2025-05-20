@@ -1,1 +1,45 @@
-https://drive.google.com/drive/folders/1R7yEHC_yShPWJzNRyney51VGbAtnGgxK
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Coleta</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="sidebar">
+    <button class="home-button">🏠</button>
+    <button class="confirmar-button">Confirmar Coleta</button>
+  </nav>
+
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>Material</th>
+          <th>Data</th>
+          <th>Quantidade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td contenteditable="true">Plástico</td>
+          <td contenteditable="true">15/04</td>
+          <td contenteditable="true">1kg</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button class="registrar-button" onclick="mostrarMensagem()">＋ Registrar</button>
+
+    <p id="mensagem" class="mensagem-sucesso" style="display:none;">Registro completo</p>
+  </main>
+
+  <script>
+    function mostrarMensagem() {
+      document.getElementById("mensagem").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
